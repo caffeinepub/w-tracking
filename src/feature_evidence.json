@@ -1,0 +1,112 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-weather-lookup-flow-that-prompts-the-user-for-a-location-via-typed-input-e-g-city-town-name-and-allows-selecting-the-intended-place-when-multiple-matches-exist",
+      "featureTitle": "Create a weather lookup flow that prompts the user for a location via typed input (e.g., city/town name) and allows selecting the intended place when multiple matches exist.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/LocationSearch.tsx",
+        "frontend/src/main.tsx",
+        "frontend/src/services/geocoding.ts",
+        "frontend/src/types/weather.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fetch-and-display-the-selected-location-s-current-temperature-and-current-weather-conditions-using-a-public-weather-api-with-loading-and-error-states",
+      "featureTitle": "Fetch and display the selected location’s current temperature and current weather conditions using a public weather API, with loading and error states.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/WeatherPanel.tsx",
+        "frontend/src/hooks/useCurrentWeather.ts",
+        "frontend/src/hooks/usePlaceSearch.ts",
+        "frontend/src/services/weatherApi.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-generate-and-display-contextual-weather-warnings-advice-e-g-carry-an-umbrella-based-on-the-fetched-conditions",
+      "featureTitle": "Generate and display contextual weather warnings/advice (e.g., “Carry an umbrella”) based on the fetched conditions.",
+      "files": [
+        "frontend/src/components/AdviceBanner.tsx",
+        "frontend/src/components/WeatherPanel.tsx",
+        "frontend/src/lib/weatherAdvice.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-distinctive-visual-theme-across-the-ui-colors-typography-spacing-and-components-suitable-for-a-consumer-weather-app-avoiding-a-default-unstyled-look",
+      "featureTitle": "Apply a coherent, distinctive visual theme across the UI (colors, typography, spacing, and components) suitable for a consumer weather app, avoiding a default/unstyled look.",
+      "files": [
+        "frontend/index.css",
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-image-assets-to-the-app-and-render-them-in-the-ui-from-frontend-public-assets-generated",
+      "featureTitle": "Add generated static image assets to the app and render them in the UI from frontend/public/assets/generated.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/components/EmptyState.tsx",
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

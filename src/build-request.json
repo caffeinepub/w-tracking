@@ -1,0 +1,122 @@
+{
+  "kind": "build_request",
+  "title": "Location-based weather app with contextual advice",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a weather lookup flow that prompts the user for a location via typed input (e.g., city/town name) and allows selecting the intended place when multiple matches exist.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Make an app where it asks for location and shows that place's temperature and weather"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On first load, the app shows a location input form (no automatic geolocation).",
+        "Submitting a location query shows a selectable list of matching places (name + region/country).",
+        "Selecting a place sets it as the active location and triggers a weather fetch for that place.",
+        "The active location is clearly displayed on the results screen."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Fetch and display the selected location’s current temperature and current weather conditions using a public weather API, with loading and error states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "shows that place's temperature and weather"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Weather results include at minimum: temperature and a human-readable condition label (e.g., Clear, Rain, Snow, Cloudy).",
+        "A loading indicator is shown while the app is fetching geocoding and/or weather data.",
+        "If the location cannot be found or the weather API fails, an error message is shown with an option to try again.",
+        "Weather fetching is managed via React Query (caching and refetch handling)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Generate and display contextual weather warnings/advice (e.g., “Carry an umbrella”) based on the fetched conditions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "shows warning like carry an umbrella etc..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "When conditions indicate precipitation (e.g., rain/showers), show advice such as “Carry an umbrella.”",
+        "When conditions indicate cold temperatures, show advice such as “Dress warmly.”",
+        "When conditions indicate strong wind, show advice such as “Expect gusty winds; secure loose items.”",
+        "If conditions are mild/clear, show a neutral positive note (e.g., “Weather looks good.”).",
+        "Advice text is in English and updates when the selected location changes."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a coherent, distinctive visual theme across the UI (colors, typography, spacing, and components) suitable for a consumer weather app, avoiding a default/unstyled look.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app uses a consistent color palette, typography scale, and component styling across all screens.",
+        "The layout looks intentional on mobile and desktop (responsive).",
+        "Do not use a blue+purple primary theme unless explicitly requested by the user."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add generated static image assets to the app and render them in the UI from frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The specified generated images exist under frontend/public/assets/generated.",
+        "The app displays the logo in the header and uses the hero/empty-state illustration on the initial/empty state."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not use browser GPS/geolocation APIs; location must be provided by the user via input.",
+    "Do not edit files in frontend immutablePaths (compose existing UI components instead).",
+    "Backend must remain a single Motoko actor (backend/main.mo); only add migration logic if persistent state changes are required."
+  ],
+  "nonGoals": [
+    "User accounts or authentication flows (beyond any template defaults).",
+    "Maps, pins, or any geospatial UI.",
+    "Real-time weather alerts or push notifications.",
+    "Saving favorites/history unless explicitly requested later."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Simple weather app logo mark (weather-logo.dim_512x512.png)",
+      "Minimal flat illustration of a city skyline with clouds/sun (weather-hero.dim_1200x600.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
