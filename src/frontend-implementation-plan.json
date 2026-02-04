@@ -1,183 +1,42 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Location-based weather app with contextual advice",
+  "title": "Weather advice emojis and actionable guidance",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Implement a typed location search with disambiguation and place selection to set the active location.",
+      "id": "REQ-6",
+      "summary": "Enhance generated weather advice to include clear, actionable guidance and relevant emojis for rainy, cold, and hot conditions.",
       "acceptanceCriteria": [
-        "On first load, the app shows a location input form (no automatic geolocation).",
-        "Submitting a location query shows a selectable list of matching places (name + region/country).",
-        "Selecting a place sets it as the active location and triggers a weather fetch for that place.",
-        "The active location is clearly displayed on the results screen."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Create the main weather lookup flow UI: initial location input, results state, and a selectable list of matching places that sets the active location on selection. Use shadcn-ui components (e.g., input/button/card/list patterns) to keep styling consistent; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/LocationSearch.tsx",
-          "operation": "create",
-          "description": "Add a LocationSearch component that manages the typed query and renders selectable geocoding matches (name + region/country). Use shadcn-ui components for form controls and list interactions; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/services/geocoding.ts",
-          "operation": "create",
-          "description": "Add a small geocoding service wrapper that searches for places by user-provided text input and returns normalized matches suitable for display and selection (no GPS/geolocation usage)."
-        },
-        {
-          "path": "frontend/src/types/weather.ts",
-          "operation": "create",
-          "description": "Define frontend-only types for geocoding matches and the selected active location to keep UI state and React Query hooks consistent."
-        },
-        {
-          "path": "frontend/src/main.tsx",
-          "operation": "modify",
-          "description": "Wire the new App component as the application root (and ensure the app renders the location input on initial load)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Fetch and render current weather (temperature + condition) for the selected location with React Query caching, including loading and error states.",
-      "acceptanceCriteria": [
-        "Weather results include at minimum: temperature and a human-readable condition label (e.g., Clear, Rain, Snow, Cloudy).",
-        "A loading indicator is shown while the app is fetching geocoding and/or weather data.",
-        "If the location cannot be found or the weather API fails, an error message is shown with an option to try again.",
-        "Weather fetching is managed via React Query (caching and refetch handling)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/services/weatherApi.ts",
-          "operation": "create",
-          "description": "Implement a public weather API client that fetches current temperature and condition data given a selected location (lat/lon), returning a normalized model for the UI."
-        },
-        {
-          "path": "frontend/src/hooks/usePlaceSearch.ts",
-          "operation": "create",
-          "description": "Create a React Query hook for geocoding search that provides caching, loading, and error states for location lookup."
-        },
-        {
-          "path": "frontend/src/hooks/useCurrentWeather.ts",
-          "operation": "create",
-          "description": "Create a React Query hook that fetches current weather for the active location, with proper query keys for caching and refetch behavior."
-        },
-        {
-          "path": "frontend/src/components/WeatherPanel.tsx",
-          "operation": "create",
-          "description": "Add a WeatherPanel component that displays temperature and a human-readable condition label, and renders loading/error UI with a retry action. Use shadcn-ui components (e.g., card/alert/button) for consistent states; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Integrate the React Query hooks for place search and current weather, ensuring selecting a place triggers the weather fetch and the UI shows loading/error states appropriately. Use shadcn-ui components for state presentation; verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Generate and display contextual advice/warnings derived from the fetched weather conditions and update it when the active location changes.",
-      "acceptanceCriteria": [
-        "When conditions indicate precipitation (e.g., rain/showers), show advice such as “Carry an umbrella.”",
-        "When conditions indicate cold temperatures, show advice such as “Dress warmly.”",
-        "When conditions indicate strong wind, show advice such as “Expect gusty winds; secure loose items.”",
-        "If conditions are mild/clear, show a neutral positive note (e.g., “Weather looks good.”).",
-        "Advice text is in English and updates when the selected location changes."
+        "When the app detects rainy/drizzly conditions, the advice includes an umbrella-related message and contains at least one umbrella/rain emoji in the displayed title and/or message.",
+        "When the app detects cold conditions, the advice includes an explicit “wear warm clothes/dress warmly” style message and contains at least one cold/warm-clothes emoji in the displayed title and/or message.",
+        "When the app detects hot conditions, the advice includes an explicit “stay hydrated” style message and contains at least one heat/hydration emoji in the displayed title and/or message.",
+        "Advice with emojis is visible in the existing AdviceBanner UI (no emojis-only; keep readable English text)."
       ],
       "file_operations": [
         {
           "path": "frontend/src/lib/weatherAdvice.ts",
-          "operation": "create",
-          "description": "Add advice generation logic that maps normalized weather conditions (precipitation/cold/wind/mild) to English guidance strings."
-        },
-        {
-          "path": "frontend/src/components/AdviceBanner.tsx",
-          "operation": "create",
-          "description": "Create an AdviceBanner component that renders the computed advice/warnings for the current weather. Use shadcn-ui components (e.g., alert/callout styling) to present advice distinctly; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/WeatherPanel.tsx",
           "operation": "modify",
-          "description": "Compute and render contextual advice alongside the weather results, ensuring advice updates whenever the active location/weather data changes."
+          "description": "Update the advice generation logic to embed readable English action messages (e.g., carry an umbrella, dress warmly, stay hydrated) and include appropriate emojis in the returned WeatherAdvice title/message strings for rainy/drizzly, cold, and hot conditions."
         }
       ]
     },
     {
-      "id": "REQ-4",
-      "summary": "Apply a distinctive, cohesive consumer-weather visual theme with responsive layout and non-default styling (avoid blue+purple primary theme).",
+      "id": "REQ-7",
+      "summary": "Prevent layout regressions in AdviceBanner so emoji-inclusive titles/messages remain readable and wrap cleanly on mobile in light/dark mode.",
       "acceptanceCriteria": [
-        "The app uses a consistent color palette, typography scale, and component styling across all screens.",
-        "The layout looks intentional on mobile and desktop (responsive).",
-        "Do not use a blue+purple primary theme unless explicitly requested by the user."
+        "AdviceBanner shows emoji characters correctly (not replaced by missing glyph boxes) in modern browsers.",
+        "Longer advice messages that include emojis wrap cleanly and remain fully readable on mobile widths."
       ],
       "file_operations": [
         {
-          "path": "frontend/index.css",
+          "path": "frontend/src/components/AdviceBanner.tsx",
           "operation": "modify",
-          "description": "Adjust global design tokens (CSS variables) to define a cohesive theme (colors/typography feel/contrast) appropriate for a consumer weather app while avoiding a blue+purple primary theme."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Extend Tailwind theme configuration (as needed) to support the chosen palette, spacing, and typography scale used across the app in a consistent, responsive way."
-        },
-        {
-          "path": "frontend/src/components/AppLayout.tsx",
-          "operation": "create",
-          "description": "Add an AppLayout component that provides consistent page structure (header/content container/spacing) and responsive behavior. Use shadcn-ui layout-friendly components (e.g., card, container patterns) where applicable; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wrap the flow in AppLayout and ensure all screens (empty/search/results/error) share consistent spacing, typography, and component styling (no unstyled/default look)."
+          "description": "Adjust AdviceBanner layout/typography classes to ensure long title/message text (including emojis) wraps cleanly without truncation; add flex/min-width and word-breaking safeguards while continuing to render the provided advice.title and advice.message strings. This component uses shadcn-ui Alert building blocks—verify the component's usage instructions before implementing."
         },
         {
           "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Create frontend/src/index.css to correctly provide Tailwind layers/styles for the React entry import path expected by frontend/src/main.tsx (may re-export or align with frontend/index.css styling so the theme is applied consistently)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Add required generated static images under frontend/public/assets/generated and render the logo in the header plus hero/empty-state illustration on the initial state.",
-      "acceptanceCriteria": [
-        "The specified generated images exist under frontend/public/assets/generated.",
-        "The app displays the logo in the header and uses the hero/empty-state illustration on the initial/empty state."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/weather-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated static logo asset at the exact path frontend/public/assets/generated/weather-logo.dim_512x512.png so it can be referenced by the UI."
-        },
-        {
-          "path": "frontend/public/assets/generated/weather-hero.dim_1200x600.png",
-          "operation": "create",
-          "description": "Add the generated static hero/empty-state illustration at the exact path frontend/public/assets/generated/weather-hero.dim_1200x600.png so it can be referenced by the UI."
-        },
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "create",
-          "description": "Create a Header component that renders the app branding and displays the logo image from frontend/public/assets/generated/weather-logo.dim_512x512.png. Use shadcn-ui components for header structure and actions if needed; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/EmptyState.tsx",
-          "operation": "create",
-          "description": "Create an EmptyState component for the initial/empty screen that displays the hero illustration from frontend/public/assets/generated/weather-hero.dim_1200x600.png alongside the location prompt. Use shadcn-ui components for consistent empty-state presentation; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/AppLayout.tsx",
           "operation": "modify",
-          "description": "Wire Header into the shared layout so the logo is visible across the app."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Render EmptyState on the initial/empty state before a location is selected, ensuring the hero illustration is visible and the location input remains the primary action."
+          "description": "Harden global font fallback to include common color-emoji fonts so emoji glyphs render reliably across platforms in both light and dark mode."
         }
       ]
     }

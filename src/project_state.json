@@ -1,45 +1,120 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Weather app that asks for a location, displays the temperature and current weather for that place, and provides contextual warnings/advice (e.g., carry an umbrella).",
+  "projectStateVersion": 7,
+  "summary": "Weather app starter built on Internet Computer: Motoko backend canister plus React/Vite/Tailwind frontend with shadcn/ui components, Internet Identity auth, location search, current weather display, and weather-based advice UI.",
   "existing_features": [
     {
-      "id": "feature-create-a-weather-lookup-flow-that-prompts-the-user-for-a-location-via-typed-input-e-g-city-town-name-and-allows-selecting-the-intended-place-when-multiple-matches-exist",
-      "title": "Create a weather lookup flow that prompts the user for a location via typed input (e.g., city/town name) and allows selecting the intended place when multiple matches exist.",
+      "id": "IF-1",
+      "title": "Motoko backend canister scaffold",
+      "synonyms": [
+        "backend canister",
+        "Motoko core"
+      ],
+      "description": "Backend canister implemented in Motoko with generated Candid bindings and project wiring for local/deploy builds.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "React + Vite + Tailwind frontend scaffold",
+      "synonyms": [
+        "frontend app",
+        "initial React app"
+      ],
+      "description": "Frontend application with Vite build, Tailwind styling, and core app layout wiring.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "shadcn/ui component library integrated",
+      "synonyms": [
+        "UI components",
+        "shadcn"
+      ],
+      "description": "Large set of shadcn/ui components added and configured for the frontend.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Internet Identity authentication",
+      "synonyms": [
+        "II auth",
+        "ICP login"
+      ],
+      "description": "Frontend hooks and ESLint safeguards for Internet Identity provider usage; actor wiring for authenticated calls.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Location search (geocoding) integration",
+      "synonyms": [
+        "place search",
+        "geocoding"
+      ],
+      "description": "Location search component and hook using a geocoding service to resolve places for weather lookup.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Current weather fetching and display",
+      "synonyms": [
+        "weather panel",
+        "weather API"
+      ],
+      "description": "Weather API service, typed models, hooks for fetching current weather, and UI panel to render results.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Weather advice banner",
+      "synonyms": [
+        "advice",
+        "recommendations"
+      ],
+      "description": "Derives and displays weather-based advice content in the UI.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Client-side storage utility",
+      "synonyms": [
+        "StorageClient",
+        "local persistence"
+      ],
+      "description": "Utility for storing/retrieving small app state on the client (e.g., selections/preferences).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "Build/deploy template and scripts",
+      "synonyms": [
+        "build template",
+        "deploy scripts"
+      ],
+      "description": "Dockerfile, ICP config, workspace/package setup, and image tooling scripts (resize/prune) for builds and deployment.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-weather-advice-generation-so-that-warning-advice-copy-explicitly-includes-actionable-messages-such-as-wear-warm-clothes-stay-hydrated-and-carry-an-umbrella-and-include-relevant-emojis-in-the-user-facing-advice-text",
+      "title": "Update the weather advice generation so that warning/advice copy explicitly includes actionable messages such as “wear warm clothes”, “stay hydrated”, and “carry an umbrella”, and include relevant emojis in the user-facing advice text.",
       "reqIds": [
-        "REQ-1"
+        "REQ-6"
       ],
       "version": 1
     },
     {
-      "id": "feature-fetch-and-display-the-selected-location-s-current-temperature-and-current-weather-conditions-using-a-public-weather-api-with-loading-and-error-states",
-      "title": "Fetch and display the selected location’s current temperature and current weather conditions using a public weather API, with loading and error states.",
+      "id": "feature-ensure-the-advicebanner-component-continues-to-render-the-advice-title-and-message-as-provided-including-emojis-without-layout-regressions-wrapping-truncation-in-both-light-and-dark-mode",
+      "title": "Ensure the AdviceBanner component continues to render the advice title and message as provided (including emojis) without layout regressions (wrapping/truncation) in both light and dark mode.",
       "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-generate-and-display-contextual-weather-warnings-advice-e-g-carry-an-umbrella-based-on-the-fetched-conditions",
-      "title": "Generate and display contextual weather warnings/advice (e.g., “Carry an umbrella”) based on the fetched conditions.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-coherent-distinctive-visual-theme-across-the-ui-colors-typography-spacing-and-components-suitable-for-a-consumer-weather-app-avoiding-a-default-unstyled-look",
-      "title": "Apply a coherent, distinctive visual theme across the UI (colors, typography, spacing, and components) suitable for a consumer weather app, avoiding a default/unstyled look.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-generated-static-image-assets-to-the-app-and-render-them-in-the-ui-from-frontend-public-assets-generated",
-      "title": "Add generated static image assets to the app and render them in the UI from frontend/public/assets/generated.",
-      "reqIds": [
-        "REQ-5"
+        "REQ-7"
       ],
       "version": 1
     }
@@ -47,43 +122,34 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Allow user to provide/confirm a location to get local weather",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Show temperature and current weather conditions for the selected location",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Display contextual weather warnings/advice (e.g., carry an umbrella) based on conditions",
+      "summary": "Enhance weather advice/warnings to include messages like wear warm clothes, stay hydrated, carry an umbrella, and display them with emojis",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "architectural_notes": [],
+  "architectural_notes": [
+    "Architecture includes an ICP Motoko backend canister with generated Candid bindings consumed by a React/Vite frontend.",
+    "Frontend uses Tailwind CSS and shadcn/ui component set; custom ESLint rules enforce Internet Identity provider usage and prevent problematic BigInt usage in query keys.",
+    "Frontend integrates external geocoding and weather APIs via service modules and React hooks.",
+    "Build template includes scripts to resize/prune generated images and a deploy script/config for ICP."
+  ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Simple weather app logo mark (weather-logo.dim_512x512.png)\n- Minimal flat illustration of a city skyline with clouds/sun (weather-hero.dim_1200x600.png)",
   "generatedImages": [
     {
-      "filename": "weather-logo.dim_512x512.png",
-      "description": "Simple weather app logo mark",
-      "targetWidth": 512,
-      "targetHeight": 512
-    },
-    {
-      "filename": "weather-hero.dim_1200x600.png",
-      "description": "Minimal flat illustration of a city skyline with clouds/sun",
+      "filename": "frontend/public/assets/generated/weather-hero.dim_1200x600.png",
+      "description": "Generated hero image asset for the weather app.",
       "targetWidth": 1200,
       "targetHeight": 600
+    },
+    {
+      "filename": "frontend/public/assets/generated/weather-logo.dim_512x512.png",
+      "description": "Generated logo image asset for the weather app.",
+      "targetWidth": 512,
+      "targetHeight": 512
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Location-based weather app with contextual advice",
+  "projectName": "Enhance weather warnings/advice with emoji and clearer actions",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

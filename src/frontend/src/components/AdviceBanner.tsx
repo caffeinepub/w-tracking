@@ -1,4 +1,4 @@
-import { AlertCircle, Umbrella, Wind, Snowflake, Sun, CloudRain, AlertTriangle } from 'lucide-react';
+import { AlertCircle, Umbrella, Wind, Snowflake, Sun, AlertTriangle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import type { WeatherData, WeatherAdvice } from '../types/weather';
 
@@ -11,25 +11,20 @@ export function AdviceBanner({ advice, weather }: AdviceBannerProps) {
   const getIcon = () => {
     if (advice.type === 'warning') {
       if (weather.condition.toLowerCase().includes('rain') || weather.condition.toLowerCase().includes('drizzle')) {
-        return <Umbrella className="w-5 h-5" />;
+        return <Umbrella className="w-5 h-5 flex-shrink-0" />;
       }
       if (weather.condition.toLowerCase().includes('snow')) {
-        return <Snowflake className="w-5 h-5" />;
+        return <Snowflake className="w-5 h-5 flex-shrink-0" />;
       }
       if (weather.windSpeed > 30) {
-        return <Wind className="w-5 h-5" />;
+        return <Wind className="w-5 h-5 flex-shrink-0" />;
       }
-      return <AlertTriangle className="w-5 h-5" />;
+      return <AlertTriangle className="w-5 h-5 flex-shrink-0" />;
     }
     if (advice.type === 'info') {
-      return <AlertCircle className="w-5 h-5" />;
+      return <AlertCircle className="w-5 h-5 flex-shrink-0" />;
     }
-    return <Sun className="w-5 h-5" />;
-  };
-
-  const getVariant = () => {
-    if (advice.type === 'warning') return 'destructive';
-    return 'default';
+    return <Sun className="w-5 h-5 flex-shrink-0" />;
   };
 
   const getBgClass = () => {
@@ -48,11 +43,11 @@ export function AdviceBanner({ advice, weather }: AdviceBannerProps) {
         <div className="mt-0.5">
           {getIcon()}
         </div>
-        <div className="flex-1">
-          <AlertTitle className="text-lg font-semibold mb-1">
+        <div className="flex-1 min-w-0">
+          <AlertTitle className="text-lg font-semibold mb-1 break-words">
             {advice.title}
           </AlertTitle>
-          <AlertDescription className="text-base">
+          <AlertDescription className="text-base break-words">
             {advice.message}
           </AlertDescription>
         </div>

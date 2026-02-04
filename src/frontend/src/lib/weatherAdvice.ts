@@ -12,8 +12,8 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   ) {
     return {
       type: 'warning',
-      title: 'Rain Expected',
-      message: 'Carry an umbrella and consider waterproof clothing. Roads may be slippery.'
+      title: '☔ Carry an Umbrella',
+      message: 'Rain expected today! Don\'t forget your umbrella ☂️ and consider waterproof clothing. Roads may be slippery, so take care when traveling.'
     };
   }
 
@@ -21,8 +21,8 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (conditionLower.includes('snow')) {
     return {
       type: 'warning',
-      title: 'Snowy Conditions',
-      message: 'Dress warmly in layers. Watch for icy surfaces and allow extra travel time.'
+      title: '❄️ Wear Warm Clothes',
+      message: 'Snowy conditions ahead! Dress warmly in layers 🧥🧣🧤 Watch for icy surfaces and allow extra travel time. Stay cozy!'
     };
   }
 
@@ -30,8 +30,8 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (conditionLower.includes('thunderstorm')) {
     return {
       type: 'warning',
-      title: 'Thunderstorm Alert',
-      message: 'Stay indoors if possible. Avoid open areas and seek shelter during the storm.'
+      title: '⚡ Thunderstorm Alert',
+      message: 'Storms expected! Stay indoors if possible 🏠 Avoid open areas and seek shelter during the storm. Carry an umbrella ☔ for sudden downpours.'
     };
   }
 
@@ -39,8 +39,8 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (conditionLower.includes('fog')) {
     return {
       type: 'warning',
-      title: 'Foggy Conditions',
-      message: 'Drive carefully with reduced visibility. Use fog lights and maintain safe distances.'
+      title: '🌫️ Foggy Conditions',
+      message: 'Low visibility ahead! Drive carefully with fog lights and maintain safe distances. Allow extra time for your journey.'
     };
   }
 
@@ -48,8 +48,8 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (windSpeed > 30) {
     return {
       type: 'warning',
-      title: 'Windy Weather',
-      message: 'Expect gusty winds. Secure loose items and be cautious of falling branches.'
+      title: '💨 Windy Weather',
+      message: 'Strong winds expected! Secure loose items and be cautious of falling branches. Hold onto your hat! 🎩'
     };
   }
 
@@ -57,8 +57,8 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (temperature < 5) {
     return {
       type: 'info',
-      title: 'Cold Weather',
-      message: 'Dress warmly in layers. Don\'t forget a jacket, scarf, and gloves.'
+      title: '🧥 Wear Warm Clothes',
+      message: 'It\'s cold outside! Dress warmly in layers and don\'t forget a jacket, scarf, and gloves 🧣🧤 Stay cozy and warm!'
     };
   }
 
@@ -66,15 +66,15 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (temperature > 30) {
     return {
       type: 'info',
-      title: 'Hot Weather',
-      message: 'Stay hydrated and wear light clothing. Avoid prolonged sun exposure during peak hours.'
+      title: '💧 Stay Hydrated',
+      message: 'Hot weather ahead! Drink plenty of water 🚰 and wear light, breathable clothing 👕 Avoid prolonged sun exposure during peak hours. Don\'t forget sunscreen! ☀️'
     };
   }
 
   // Default positive message for mild/clear weather
   return {
     type: 'positive',
-    title: 'Great Weather!',
-    message: 'Weather looks good. Perfect conditions for outdoor activities. Enjoy your day!'
+    title: '✨ Great Weather!',
+    message: 'Perfect conditions for outdoor activities! 🌤️ Enjoy your day and make the most of this beautiful weather!'
   };
 }
