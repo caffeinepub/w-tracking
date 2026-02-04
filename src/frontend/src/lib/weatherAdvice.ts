@@ -4,7 +4,7 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   const { temperature, condition, weatherCode, windSpeed } = weather;
   const conditionLower = condition.toLowerCase();
 
-  // Check for precipitation (rain, drizzle, snow)
+  // Check for precipitation (rain, drizzle, showers)
   if (
     conditionLower.includes('rain') || 
     conditionLower.includes('drizzle') || 
@@ -30,7 +30,7 @@ export function getWeatherAdvice(weather: WeatherData): WeatherAdvice {
   if (conditionLower.includes('thunderstorm')) {
     return {
       type: 'warning',
-      title: '⚡ Thunderstorm Alert',
+      title: '⚡ Thunderstorm Alert - Carry an Umbrella',
       message: 'Storms expected! Stay indoors if possible 🏠 Avoid open areas and seek shelter during the storm. Carry an umbrella ☔ for sudden downpours.'
     };
   }

@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Make weather warnings/advice clearer and more actionable by adding practical guidance (e.g., umbrella, dress warmly, stay hydrated) and relevant emojis in the displayed advice.
+**Goal:** Add clear, actionable weather warnings/advice (with emojis) based on current conditions, and ensure the advice banner displays the full text cleanly in light and dark mode.
 
 **Planned changes:**
-- Update the frontend weather advice generation to include explicit, actionable messages for rainy/drizzly, cold, and hot conditions.
-- Add relevant emojis to the advice title and/or message while keeping readable English text (not emojis-only).
-- Ensure the existing AdviceBanner displays emoji-containing titles/messages without layout regressions, including clean wrapping on mobile and in both light/dark mode.
+- Update frontend weather advice generation to output English advice with emojis, including: “Carry an umbrella” for rain/drizzle/showers, “Wear warm clothes” for snow/very cold, and “Stay hydrated” for hot temperatures.
+- Adjust the weather advice banner UI to render titles/messages exactly as provided (including emojis) with no truncation and readable wrapping on mobile/desktop in both light and dark mode.
 
-**User-visible outcome:** The Advice banner shows clearer, actionable weather guidance with appropriate emojis (e.g., umbrella for rain, warm-clothing for cold, hydration/heat for hot), and the text remains fully readable across devices and themes.
+**User-visible outcome:** Users see condition-based weather warnings like “Carry an umbrella ☔️”, “Wear warm clothes 🧥”, or “Stay hydrated 💧” and the full advice text (including emojis) is fully visible and easy to read across themes and screen sizes.

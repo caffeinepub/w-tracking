@@ -1,52 +1,53 @@
 {
   "kind": "build_request",
-  "title": "Enhance weather warnings/advice with emoji and clearer actions",
+  "title": "Add actionable weather warnings (umbrella, warm clothes, stay hydrated) with emojis",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-6",
-      "text": "Update the weather advice generation so that warning/advice copy explicitly includes actionable messages such as “wear warm clothes”, “stay hydrated”, and “carry an umbrella”, and include relevant emojis in the user-facing advice text.",
+      "id": "REQ-1",
+      "text": "Update the weather advice generation so that, based on current weather conditions, the app shows actionable warnings/advice in English that include at least: “Carry an umbrella”, “Wear warm clothes”, and “Stay hydrated”, with relevant emojis included in the user-facing title/message text.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "Add warnings like wear warm clothes stay hydrated carry an umbrella etc use emoji also"
+          "Wait I said u to add warnings like carry an umbrella,wear warm clothes,stay hydrated etc.."
         ]
       },
       "acceptanceCriteria": [
-        "When the app detects rainy/drizzly conditions, the advice includes an umbrella-related message and contains at least one umbrella/rain emoji in the displayed title and/or message.",
-        "When the app detects cold conditions, the advice includes an explicit “wear warm clothes/dress warmly” style message and contains at least one cold/warm-clothes emoji in the displayed title and/or message.",
-        "When the app detects hot conditions, the advice includes an explicit “stay hydrated” style message and contains at least one heat/hydration emoji in the displayed title and/or message.",
-        "Advice with emojis is visible in the existing AdviceBanner UI (no emojis-only; keep readable English text)."
+        "When current conditions indicate rain/drizzle/showers, the advice title/message explicitly tells the user to carry an umbrella and includes umbrella-related emoji(s).",
+        "When current conditions indicate snow or very cold temperature, the advice title/message explicitly tells the user to wear warm clothes and includes cold/clothing emoji(s).",
+        "When current conditions indicate hot temperature, the advice title/message explicitly tells the user to stay hydrated and includes water/heat emoji(s).",
+        "All advice/warning copy is in English."
       ]
     },
     {
-      "id": "REQ-7",
-      "text": "Ensure the AdviceBanner component continues to render the advice title and message as provided (including emojis) without layout regressions (wrapping/truncation) in both light and dark mode.",
+      "id": "REQ-2",
+      "text": "Ensure the weather advice banner renders the advice title and message exactly as provided (including emojis) without truncation, and with readable wrapping in both light and dark mode.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-1"
         ],
         "quotes": [
-          "use emoji also"
+          "add warnings like carry an umbrella,wear warm clothes,stay hydrated etc.."
         ]
       },
       "acceptanceCriteria": [
-        "AdviceBanner shows emoji characters correctly (not replaced by missing glyph boxes) in modern browsers.",
-        "Longer advice messages that include emojis wrap cleanly and remain fully readable on mobile widths."
+        "Advice titles and messages (including emojis) are fully visible and wrap gracefully on mobile and desktop.",
+        "No layout regressions in light mode or dark mode when rendering longer advice messages."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (shadcn/ui components are read-only).",
-    "Keep the backend as a single Motoko actor; no backend changes are required for this request."
+    "Do not edit files under frontend/immutablePaths (compose existing hooks/components instead).",
+    "Keep the backend as a single Motoko actor; do not introduce additional backend services."
   ],
   "nonGoals": [
-    "Adding a 7-day forecast or additional forecast UI.",
-    "Adding push notifications, real-time alerts, or external messaging integrations."
+    "APK generation or Android packaging.",
+    "Adding a weekly weather summary (not requested in the latest user message).",
+    "Introducing new third-party authentication beyond Internet Identity."
   ],
   "imageRequirements": {
     "required": [],

@@ -44,10 +44,10 @@ export function AdviceBanner({ advice, weather }: AdviceBannerProps) {
           {getIcon()}
         </div>
         <div className="flex-1 min-w-0">
-          <AlertTitle className="text-lg font-semibold mb-1 break-words">
+          <AlertTitle className="text-lg font-semibold mb-1 break-words whitespace-normal">
             {advice.title}
           </AlertTitle>
-          <AlertDescription className="text-base break-words">
+          <AlertDescription className="text-base break-words whitespace-normal leading-relaxed">
             {advice.message}
           </AlertDescription>
         </div>

@@ -1,42 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Weather advice emojis and actionable guidance",
+  "title": "Actionable weather warnings with emoji-safe rendering",
   "requirements": [
     {
-      "id": "REQ-6",
-      "summary": "Enhance generated weather advice to include clear, actionable guidance and relevant emojis for rainy, cold, and hot conditions.",
+      "id": "REQ-1",
+      "summary": "Expand and standardize actionable, emoji-inclusive English weather advice for rain/cold/hot conditions.",
       "acceptanceCriteria": [
-        "When the app detects rainy/drizzly conditions, the advice includes an umbrella-related message and contains at least one umbrella/rain emoji in the displayed title and/or message.",
-        "When the app detects cold conditions, the advice includes an explicit “wear warm clothes/dress warmly” style message and contains at least one cold/warm-clothes emoji in the displayed title and/or message.",
-        "When the app detects hot conditions, the advice includes an explicit “stay hydrated” style message and contains at least one heat/hydration emoji in the displayed title and/or message.",
-        "Advice with emojis is visible in the existing AdviceBanner UI (no emojis-only; keep readable English text)."
+        "When current conditions indicate rain/drizzle/showers, the advice title/message explicitly tells the user to carry an umbrella and includes umbrella-related emoji(s).",
+        "When current conditions indicate snow or very cold temperature, the advice title/message explicitly tells the user to wear warm clothes and includes cold/clothing emoji(s).",
+        "When current conditions indicate hot temperature, the advice title/message explicitly tells the user to stay hydrated and includes water/heat emoji(s).",
+        "All advice/warning copy is in English."
       ],
       "file_operations": [
         {
           "path": "frontend/src/lib/weatherAdvice.ts",
           "operation": "modify",
-          "description": "Update the advice generation logic to embed readable English action messages (e.g., carry an umbrella, dress warmly, stay hydrated) and include appropriate emojis in the returned WeatherAdvice title/message strings for rainy/drizzly, cold, and hot conditions."
+          "description": "Update advice generation logic and copy to ensure the user-facing title/message includes the exact actionable phrases “Carry an umbrella”, “Wear warm clothes”, and “Stay hydrated” (as applicable) and includes relevant emojis for rain/cold/hot conditions; keep all copy in English."
         }
       ]
     },
     {
-      "id": "REQ-7",
-      "summary": "Prevent layout regressions in AdviceBanner so emoji-inclusive titles/messages remain readable and wrap cleanly on mobile in light/dark mode.",
+      "id": "REQ-2",
+      "summary": "Ensure the advice banner displays full emoji-inclusive titles/messages with readable wrapping in light and dark mode without truncation.",
       "acceptanceCriteria": [
-        "AdviceBanner shows emoji characters correctly (not replaced by missing glyph boxes) in modern browsers.",
-        "Longer advice messages that include emojis wrap cleanly and remain fully readable on mobile widths."
+        "Advice titles and messages (including emojis) are fully visible and wrap gracefully on mobile and desktop.",
+        "No layout regressions in light mode or dark mode when rendering longer advice messages."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/AdviceBanner.tsx",
           "operation": "modify",
-          "description": "Adjust AdviceBanner layout/typography classes to ensure long title/message text (including emojis) wraps cleanly without truncation; add flex/min-width and word-breaking safeguards while continuing to render the provided advice.title and advice.message strings. This component uses shadcn-ui Alert building blocks—verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Harden global font fallback to include common color-emoji fonts so emoji glyphs render reliably across platforms in both light and dark mode."
+          "description": "Adjust the AdviceBanner layout/typography to guarantee the title and message render exactly as provided (including emojis) without truncation, using wrapping-friendly styles (e.g., no clamping, appropriate whitespace/overflow/line-height) and ensuring readable contrast in both light and dark mode. Use the shadcn-ui Alert component for the banner container (Verify the component's usage instructions before implementing)."
         }
       ]
     }

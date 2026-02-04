@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-04T12:20:58.126Z",
+  "generatedAt": "2026-02-04T12:44:07.005Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,8 +11,8 @@
     "implemented": 2,
     "items": [
       {
-        "id": "REQ-6",
-        "summary": "Update the weather advice generation so that warning/advice copy explicitly includes actionable messages such as “wear warm clothes”, “stay hydrated”, and “carry an umbrella”, and include relevant emojis in the user-facing advice text.",
+        "id": "REQ-1",
+        "summary": "Update the weather advice generation so that, based on current weather conditions, the app shows actionable warnings/advice in English that include at least: “Carry an umbrella”, “Wear warm clothes”, and “Stay hydrated”, with relevant emojis included in the user-facing title/message text.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/lib/weatherAdvice.ts"
@@ -22,28 +22,25 @@
         ]
       },
       {
-        "id": "REQ-7",
-        "summary": "Ensure the AdviceBanner component continues to render the advice title and message as provided (including emojis) without layout regressions (wrapping/truncation) in both light and dark mode.",
+        "id": "REQ-2",
+        "summary": "Ensure the weather advice banner renders the advice title and message exactly as provided (including emojis) without truncation, and with readable wrapping in both light and dark mode.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/AdviceBanner.tsx",
-          "frontend/src/index.css"
+          "frontend/src/components/AdviceBanner.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/AdviceBanner.tsx",
-          "frontend/src/index.css"
+          "frontend/src/components/AdviceBanner.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
+    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/components/AdviceBanner.tsx",
-    "frontend/src/index.css",
     "frontend/src/lib/weatherAdvice.ts",
     "project_state.json",
     "scratch/component-selection.json",
