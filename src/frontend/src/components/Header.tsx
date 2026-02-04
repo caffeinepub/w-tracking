@@ -1,4 +1,4 @@
-import { Cloud, Sun } from 'lucide-react';
+import { APP_NAME, APP_TAGLINE } from '@/lib/branding';
 
 export function Header() {
   return (
@@ -8,15 +8,15 @@ export function Header() {
           <div className="relative">
             <img 
               src="/assets/generated/weather-logo.dim_512x512.png" 
-              alt="Weather App Logo" 
+              alt={`${APP_NAME} Logo`}
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
           </div>
           <div>
             <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
-              WeatherWise
+              {APP_NAME}
             </h1>
-            <p className="text-xs md:text-sm text-muted-foreground">Your local weather companion</p>
+            <p className="text-xs md:text-sm text-muted-foreground">{APP_TAGLINE}</p>
           </div>
         </div>
       </div>

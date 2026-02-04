@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-weather-advice-generation-so-that-based-on-current-weather-conditions-the-app-shows-actionable-warnings-advice-in-english-that-include-at-least-carry-an-umbrella-wear-warm-clothes-and-stay-hydrated-with-relevant-emojis-included-in-the-user-facing-title-message-text",
-      "featureTitle": "Update the weather advice generation so that, based on current weather conditions, the app shows actionable warnings/advice in English that include at least: “Carry an umbrella”, “Wear warm clothes”, and “Stay hydrated”, with relevant emojis included in the user-facing title/message text.",
+      "featureId": "feature-add-the-existing-app-logo-image-to-the-landing-empty-state-screen-the-screen-shown-before-a-user-starts-searching-for-a-location-using-the-existing-generated-asset-at-frontend-public-assets-generated-weather-logo-dim-512x512-png",
+      "featureTitle": "Add the existing app logo image to the landing/empty-state screen (the screen shown before a user starts searching for a location), using the existing generated asset at `frontend/public/assets/generated/weather-logo.dim_512x512.png`.",
       "files": [
-        "frontend/src/lib/weatherAdvice.ts"
+        "frontend/src/components/EmptyState.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,24 +16,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-the-weather-advice-banner-renders-the-advice-title-and-message-exactly-as-provided-including-emojis-without-truncation-and-with-readable-wrapping-in-both-light-and-dark-mode",
-      "featureTitle": "Ensure the weather advice banner renders the advice title and message exactly as provided (including emojis) without truncation, and with readable wrapping in both light and dark mode.",
-      "files": [
-        "frontend/src/components/AdviceBanner.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }

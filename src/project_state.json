@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
-  "summary": "Weather app starter built on Internet Computer: Motoko backend canister plus React/Vite/Tailwind frontend with shadcn/ui components, Internet Identity auth, location search, current weather display, and weather-based advice UI.",
+  "projectStateVersion": 30,
+  "summary": "Weather app starter built on Internet Computer with Motoko backend and React/Vite/Tailwind + shadcn/ui frontend, Internet Identity auth, location search, current weather display, and weather-based advice/warnings UI; project branding updated to W Tracking / Weather Gizmos.",
   "existing_features": [
     {
       "id": "IF-1",
@@ -103,18 +103,10 @@
       "version": 1
     },
     {
-      "id": "feature-update-the-weather-advice-generation-so-that-based-on-current-weather-conditions-the-app-shows-actionable-warnings-advice-in-english-that-include-at-least-carry-an-umbrella-wear-warm-clothes-and-stay-hydrated-with-relevant-emojis-included-in-the-user-facing-title-message-text",
-      "title": "Update the weather advice generation so that, based on current weather conditions, the app shows actionable warnings/advice in English that include at least: “Carry an umbrella”, “Wear warm clothes”, and “Stay hydrated”, with relevant emojis included in the user-facing title/message text.",
+      "id": "feature-add-the-existing-app-logo-image-to-the-landing-empty-state-screen-the-screen-shown-before-a-user-starts-searching-for-a-location-using-the-existing-generated-asset-at-frontend-public-assets-generated-weather-logo-dim-512x512-png",
+      "title": "Add the existing app logo image to the landing/empty-state screen (the screen shown before a user starts searching for a location), using the existing generated asset at `frontend/public/assets/generated/weather-logo.dim_512x512.png`.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-the-weather-advice-banner-renders-the-advice-title-and-message-exactly-as-provided-including-emojis-without-truncation-and-with-readable-wrapping-in-both-light-and-dark-mode",
-      "title": "Ensure the weather advice banner renders the advice title and message exactly as provided (including emojis) without truncation, and with readable wrapping in both light and dark mode.",
-      "reqIds": [
-        "REQ-2"
       ],
       "version": 1
     }
@@ -122,7 +114,7 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Expand weather advice/warnings content (umbrella, warm clothes, stay hydrated, etc.) and include emojis in the warning text/UI.",
+      "summary": "Add a logo to the app (logo shown on the landing/splash screen page)",
       "reqIds": [],
       "status": "pending"
     }
@@ -133,10 +125,8 @@
     "Frontend integrates external geocoding and weather APIs via service modules and React hooks.",
     "Build template includes scripts to resize/prune generated images and a deploy script/config for ICP."
   ],
-  "known_issues": [
-    "User reports warnings/advice (umbrella/warm clothes/stay hydrated, with emojis) were requested but not reflected yet."
-  ],
-  "isFixRequest": true,
+  "known_issues": [],
+  "isFixRequest": false,
   "generatedImages": [
     {
       "filename": "frontend/public/assets/generated/weather-hero.dim_1200x600.png",
@@ -151,7 +141,6 @@
       "targetHeight": 512
     }
   ],
-  "gameProjectType": "none",
   "projectName": "W Tracking",
   "clarification_mode": "instant",
   "clarification_rounds": 0

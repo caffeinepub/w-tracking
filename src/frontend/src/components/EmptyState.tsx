@@ -8,10 +8,18 @@ interface EmptyStateProps {
 export function EmptyState({ onStartSearch }: EmptyStateProps) {
   return (
     <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="flex justify-center mb-6">
+        <img 
+          src="/assets/generated/weather-logo.dim_512x512.png" 
+          alt="Weather Gizmos logo" 
+          className="w-24 h-24 md:w-32 md:h-32 object-contain"
+        />
+      </div>
+      
       <div className="relative w-full max-w-2xl mx-auto">
         <img 
           src="/assets/generated/weather-hero.dim_1200x600.png" 
-          alt="Weather illustration" 
+          alt="Weather Gizmos hero illustration" 
           className="w-full h-auto rounded-2xl shadow-2xl"
         />
       </div>

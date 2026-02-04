@@ -1,9 +1,9 @@
 {
   "frontend/src/App.tsx": "Main application component managing location selection state and rendering EmptyState, LocationSearch, or WeatherPanel based on user flow.",
   "frontend/src/components/AppLayout.tsx": "Layout wrapper component providing consistent page structure with header, main content area, and footer with gradient background.",
-  "frontend/src/components/Header.tsx": "Header component displaying the app logo, title \"WeatherWise\", and tagline.",
+  "frontend/src/components/Header.tsx": "Header component displaying the app logo, title \"Weather Gizmos\", and tagline sourced from the branding module.",
   "frontend/src/components/Footer.tsx": "Footer component with attribution to caffeine.ai and credits to Open-Meteo and OpenStreetMap data sources.",
-  "frontend/src/components/EmptyState.tsx": "Initial landing screen showing hero illustration and call-to-action button to start location search.",
+  "frontend/src/components/EmptyState.tsx": "Initial landing screen showing the app logo, hero illustration, heading, description, and call-to-action button to start location search with responsive layout.",
   "frontend/src/components/LocationSearch.tsx": "Search interface with input field and selectable list of geocoded location results from Nominatim API.",
   "frontend/src/components/WeatherPanel.tsx": "Main weather display showing current conditions, temperature, and detailed metrics with location header and advice banner.",
   "frontend/src/components/AdviceBanner.tsx": "Alert component displaying weather advice with icons, proper text wrapping (break-words, whitespace-normal, min-w-0), relaxed line-height for readability, and color-coded styling based on advice type (warning/info/positive) for both light and dark modes.",
@@ -15,5 +15,7 @@
   "frontend/src/lib/weatherAdvice.ts": "Generates contextual weather advice with actionable guidance and emojis for rain (umbrella ☔), cold (warm clothes 🧥🧣), hot (hydration 💧), thunderstorms, fog, wind, and other weather conditions with clear English instructions.",
   "frontend/src/hooks/useQueries.ts": "Placeholder file as React Query hooks are organized in feature-specific files.",
   "frontend/src/index.css": "Global styles with OKLCH color system for light/dark modes and emoji font fallbacks (Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji) for cross-platform emoji rendering.",
-  "frontend/tailwind.config.js": "Tailwind configuration extending theme with custom colors, fonts, and design tokens matching the warm weather app aesthetic."
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme with custom colors, fonts, and design tokens matching the warm weather app aesthetic.",
+  "frontend/src/lib/branding.ts": "Centralized branding constants module exporting APP_NAME (\"Weather Gizmos\") and APP_TAGLINE for consistent use across the application.",
+  "frontend/index.html": "HTML entry point with updated page title \"Weather Gizmos - Your weather gadget companion\"."
 }

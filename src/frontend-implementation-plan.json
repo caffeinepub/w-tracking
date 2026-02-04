@@ -1,37 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Actionable weather warnings with emoji-safe rendering",
+  "title": "Add app logo to Empty State screen",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Expand and standardize actionable, emoji-inclusive English weather advice for rain/cold/hot conditions.",
+      "summary": "Show the existing app logo on the landing/empty-state screen using the generated logo asset and responsive placement.",
       "acceptanceCriteria": [
-        "When current conditions indicate rain/drizzle/showers, the advice title/message explicitly tells the user to carry an umbrella and includes umbrella-related emoji(s).",
-        "When current conditions indicate snow or very cold temperature, the advice title/message explicitly tells the user to wear warm clothes and includes cold/clothing emoji(s).",
-        "When current conditions indicate hot temperature, the advice title/message explicitly tells the user to stay hydrated and includes water/heat emoji(s).",
-        "All advice/warning copy is in English."
+        "When the app first loads and the Empty State screen is shown, the logo is visible on that screen (in addition to the header).",
+        "The logo uses `/assets/generated/weather-logo.dim_512x512.png` and includes an appropriate English `alt` text (e.g., \"Weather Gizmos logo\").",
+        "Logo placement is responsive (looks good on mobile and desktop) and does not overlap the existing hero image, heading, body text, or the Search button."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/lib/weatherAdvice.ts",
+          "path": "frontend/src/components/EmptyState.tsx",
           "operation": "modify",
-          "description": "Update advice generation logic and copy to ensure the user-facing title/message includes the exact actionable phrases “Carry an umbrella”, “Wear warm clothes”, and “Stay hydrated” (as applicable) and includes relevant emojis for rain/cold/hot conditions; keep all copy in English."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Ensure the advice banner displays full emoji-inclusive titles/messages with readable wrapping in light and dark mode without truncation.",
-      "acceptanceCriteria": [
-        "Advice titles and messages (including emojis) are fully visible and wrap gracefully on mobile and desktop.",
-        "No layout regressions in light mode or dark mode when rendering longer advice messages."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/AdviceBanner.tsx",
-          "operation": "modify",
-          "description": "Adjust the AdviceBanner layout/typography to guarantee the title and message render exactly as provided (including emojis) without truncation, using wrapping-friendly styles (e.g., no clamping, appropriate whitespace/overflow/line-height) and ensuring readable contrast in both light and dark mode. Use the shadcn-ui Alert component for the banner container (Verify the component's usage instructions before implementing)."
+          "description": "Add a centered logo image element referencing `frontend/public/assets/generated/weather-logo.dim_512x512.png` with English alt text (e.g., \"Weather Gizmos logo\"), positioned in the Empty State layout so it remains responsive and does not overlap the existing hero image, text, or Search button."
         }
       ]
     }
