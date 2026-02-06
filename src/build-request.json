@@ -1,34 +1,34 @@
 {
   "kind": "build_request",
-  "title": "Add app logo to the landing (Empty State) screen",
+  "title": "Fix non-working Change Location button",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add the existing app logo image to the landing/empty-state screen (the screen shown before a user starts searching for a location), using the existing generated asset at `frontend/public/assets/generated/weather-logo.dim_512x512.png`.",
+      "text": "Fix the \"Change Location\" button flow so that clicking it from the weather results view always returns the user to the location search screen and allows selecting a new place (i.e., clear the previously selected place state before showing search).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Can u add a logo to add a gone screen page"
+          "Change the location button is not working"
         ]
       },
       "acceptanceCriteria": [
-        "When the app first loads and the Empty State screen is shown, the logo is visible on that screen (in addition to the header).",
-        "The logo uses `/assets/generated/weather-logo.dim_512x512.png` and includes an appropriate English `alt` text (e.g., \"Weather Gizmos logo\").",
-        "Logo placement is responsive (looks good on mobile and desktop) and does not overlap the existing hero image, heading, body text, or the Search button."
+        "When viewing a selected location's weather, clicking the \"Change Location\" button navigates back to the Location Search UI.",
+        "After clicking \"Change Location\", the previous location is no longer treated as selected (the WeatherPanel is not rendered until a new place is chosen).",
+        "A user can successfully select a new search result and see the weather update for the newly selected location."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under `frontend/src/components/ui` (read-only shadcn/ui components).",
-    "Use English for any user-facing text."
+    "Do not edit files under frontend/src/components/ui (shadcn/ui components).",
+    "Do not edit frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, or frontend/src/main.tsx."
   ],
   "nonGoals": [
-    "Do not change backend canister code or add new backend functionality.",
-    "Do not generate a new logo image; use the existing generated logo asset already in the project."
+    "Do not add new backend (Motoko) functionality for this fix.",
+    "Do not change the geocoding provider/API behavior beyond what is required to restore the button flow."
   ],
   "imageRequirements": {
     "required": [],

@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-04T13:59:46.288Z",
+  "generatedAt": "2026-02-04T14:09:11.963Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,13 +12,13 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Add the existing app logo image to the landing/empty-state screen (the screen shown before a user starts searching for a location), using the existing generated asset at `frontend/public/assets/generated/weather-logo.dim_512x512.png`.",
+        "summary": "Fix the \"Change Location\" button flow so that clicking it from the weather results view always returns the user to the location search screen and allows selecting a new place (i.e., clear the previously selected place state before showing search).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/EmptyState.tsx"
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/EmptyState.tsx"
+          "frontend/src/App.tsx"
         ]
       }
     ]
@@ -28,7 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/EmptyState.tsx",
+    "frontend/src/App.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

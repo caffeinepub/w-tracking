@@ -1,21 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add app logo to Empty State screen",
+  "title": "Repair Change Location navigation and state reset",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Show the existing app logo on the landing/empty-state screen using the generated logo asset and responsive placement.",
+      "summary": "Ensure the \"Change Location\" button clears the previously selected place and returns the user to the location search UI so a new place can be selected.",
       "acceptanceCriteria": [
-        "When the app first loads and the Empty State screen is shown, the logo is visible on that screen (in addition to the header).",
-        "The logo uses `/assets/generated/weather-logo.dim_512x512.png` and includes an appropriate English `alt` text (e.g., \"Weather Gizmos logo\").",
-        "Logo placement is responsive (looks good on mobile and desktop) and does not overlap the existing hero image, heading, body text, or the Search button."
+        "When viewing a selected location's weather, clicking the \"Change Location\" button navigates back to the Location Search UI.",
+        "After clicking \"Change Location\", the previous location is no longer treated as selected (the WeatherPanel is not rendered until a new place is chosen).",
+        "A user can successfully select a new search result and see the weather update for the newly selected location."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/EmptyState.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Add a centered logo image element referencing `frontend/public/assets/generated/weather-logo.dim_512x512.png` with English alt text (e.g., \"Weather Gizmos logo\"), positioned in the Empty State layout so it remains responsive and does not overlap the existing hero image, text, or Search button."
+          "description": "Update the \"Change Location\" flow by clearing selectedPlace before showing the search UI (e.g., in the onNewSearch handler). Ensure the render conditions prioritize showing LocationSearch only when no place is selected, so WeatherPanel is not rendered after clicking \"Change Location\" until a new place is chosen."
         }
       ]
     }

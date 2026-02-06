@@ -18,6 +18,7 @@ function WeatherApp() {
   };
 
   const handleNewSearch = () => {
+    setSelectedPlace(null);
     setShowSearch(true);
   };
 

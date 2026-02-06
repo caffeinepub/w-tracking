@@ -1,5 +1,5 @@
 {
-  "frontend/src/App.tsx": "Main application component managing location selection state and rendering EmptyState, LocationSearch, or WeatherPanel based on user flow.",
+  "frontend/src/App.tsx": "Main application component managing location selection state and rendering EmptyState, LocationSearch, or WeatherPanel based on user flow; now properly clears selectedPlace when changing location to return to search UI.",
   "frontend/src/components/AppLayout.tsx": "Layout wrapper component providing consistent page structure with header, main content area, and footer with gradient background.",
   "frontend/src/components/Header.tsx": "Header component displaying the app logo, title \"Weather Gizmos\", and tagline sourced from the branding module.",
   "frontend/src/components/Footer.tsx": "Footer component with attribution to caffeine.ai and credits to Open-Meteo and OpenStreetMap data sources.",

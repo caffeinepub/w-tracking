@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 30,
-  "summary": "Weather app starter built on Internet Computer with Motoko backend and React/Vite/Tailwind + shadcn/ui frontend, Internet Identity auth, location search, current weather display, and weather-based advice/warnings UI; project branding updated to W Tracking / Weather Gizmos.",
+  "projectStateVersion": 34,
+  "summary": "Weather app on Internet Computer with location-based current weather, advice/warnings (with emoji), and updated branding/name (Weather Gizmos / W Tracking). Additional requests include splash/logo screen, credits/names, and improving installability/link sharing; current blocker is a non-working location button.",
   "existing_features": [
     {
       "id": "IF-1",
@@ -103,8 +103,8 @@
       "version": 1
     },
     {
-      "id": "feature-add-the-existing-app-logo-image-to-the-landing-empty-state-screen-the-screen-shown-before-a-user-starts-searching-for-a-location-using-the-existing-generated-asset-at-frontend-public-assets-generated-weather-logo-dim-512x512-png",
-      "title": "Add the existing app logo image to the landing/empty-state screen (the screen shown before a user starts searching for a location), using the existing generated asset at `frontend/public/assets/generated/weather-logo.dim_512x512.png`.",
+      "id": "feature-fix-the-change-location-button-flow-so-that-clicking-it-from-the-weather-results-view-always-returns-the-user-to-the-location-search-screen-and-allows-selecting-a-new-place-i-e-clear-the-previously-selected-place-state-before-showing-search",
+      "title": "Fix the \"Change Location\" button flow so that clicking it from the weather results view always returns the user to the location search screen and allows selecting a new place (i.e., clear the previously selected place state before showing search).",
       "reqIds": [
         "REQ-1"
       ],
@@ -114,7 +114,37 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add a logo to the app (logo shown on the landing/splash screen page)",
+      "summary": "Fix: location button not working (location request / selection action fails)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Branding rename/update: change app/webpage name from Weatherwise to Weather Gizmos (W Tracking mentioned earlier)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add warning/advice messages with emoji (e.g., umbrella, warm clothes, hydration)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add logo to a splash/gone screen page (launch/loading screen branding)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add names/credits: sushrutha, rekka, bhavin, Akshay",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Provide a shareable/deploy URL in a visible way (fresh redeploy/link surface) and/or downloadable web version guidance",
       "reqIds": [],
       "status": "pending"
     }
@@ -125,8 +155,10 @@
     "Frontend integrates external geocoding and weather APIs via service modules and React hooks.",
     "Build template includes scripts to resize/prune generated images and a deploy script/config for ICP."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Location button is not working (user reports location action failing)."
+  ],
+  "isFixRequest": true,
   "generatedImages": [
     {
       "filename": "frontend/public/assets/generated/weather-hero.dim_1200x600.png",
@@ -141,7 +173,7 @@
       "targetHeight": 512
     }
   ],
-  "projectName": "W Tracking",
+  "projectName": "Weather Gizmos",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

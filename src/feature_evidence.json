@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-the-existing-app-logo-image-to-the-landing-empty-state-screen-the-screen-shown-before-a-user-starts-searching-for-a-location-using-the-existing-generated-asset-at-frontend-public-assets-generated-weather-logo-dim-512x512-png",
-      "featureTitle": "Add the existing app logo image to the landing/empty-state screen (the screen shown before a user starts searching for a location), using the existing generated asset at `frontend/public/assets/generated/weather-logo.dim_512x512.png`.",
+      "featureId": "feature-fix-the-change-location-button-flow-so-that-clicking-it-from-the-weather-results-view-always-returns-the-user-to-the-location-search-screen-and-allows-selecting-a-new-place-i-e-clear-the-previously-selected-place-state-before-showing-search",
+      "featureTitle": "Fix the \"Change Location\" button flow so that clicking it from the weather results view always returns the user to the location search screen and allows selecting a new place (i.e., clear the previously selected place state before showing search).",
       "files": [
-        "frontend/src/components/EmptyState.tsx"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
